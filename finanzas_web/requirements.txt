@@ -1,0 +1,4 @@
+Django==3.2.25
+gunicorn==23.0.0
+whitenoise==6.5.0
+python-decouple==3.8
