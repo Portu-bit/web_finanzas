@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transacciones</title>
+</head>
+<body>
+    <h1>Lista de Transacciones</h1>
+    {% for transaccion in transacciones %}
+        <p>{{ transaccion.fecha }} - {{ transaccion.tipo }} - {{ transaccion.descripcion }} - {{ transaccion.monto }}</p>
+    {% endfor %}
+</body>
+</html>
