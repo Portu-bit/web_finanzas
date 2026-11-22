@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Transacciones</title>
-</head>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Finanzas | Transacciones</title></head>
 <body>
-    <h1>Lista de Transacciones</h1>
-    {% for transaccion in transacciones %}
-        <p>{{ transaccion.fecha }} - {{ transaccion.tipo }} - {{ transaccion.descripcion }} - {{ transaccion.monto }}</p>
-    {% endfor %}
+<main>
+<h1>Lista de transacciones</h1>
+{% if messages %}{% for message in messages %}<p role="status">{{ message }}</p>{% endfor %}{% endif %}
+<section aria-label="Resumen financiero">
+<h2>Resumen</h2><p>Total de ingresos: {{ total_ingresos }}</p><p>Total de gastos: {{ total_gastos }}</p><p>Balance: {{ balance }}</p>
+</section>
+<p><a href="{% url 'agregar_transaccion' %}">Agregar transacción</a></p>
+<h2>Movimientos</h2>
+{% for transaccion in transacciones %}<p>{{ transaccion.fecha }} - {{ transaccion.get_tipo_display }} - {{ transaccion.descripcion }} - {{ transaccion.monto }}</p>
+{% empty %}<p>Aún no hay transacciones registradas.</p>{% endfor %}
+</main>
 </body>
 </html>

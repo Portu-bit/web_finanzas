@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agregar transacción | Finanzas</title></head>
 <body>
-    <h1>Agregar Transacción</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
+<main>
+<h1>Agregar transacción</h1>
+{% if messages %}{% for message in messages %}<p role="status">{{ message }}</p>{% endfor %}{% endif %}
+<form method="post">{% csrf_token %}{{ form.as_p }}<button type="submit">Guardar transacción</button></form>
+<p><a href="{% url 'lista_transacciones' %}">Volver a las transacciones</a></p>
+</main>
 </body>
 </html>
